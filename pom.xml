@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.com.apollo</groupId>
+    <artifactId>micro-service</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>ms-provider1</module>
+        <module>ms-provider2</module>
+        <module>ms-consumer</module>
+        <module>ms-consumer-feign</module>
+        <module>ms-consumer-feign-hystrix</module>
+        <module>ms-eureka</module>
+        <module>ms-zuul</module>
+        <module>ms-consumer-ribbon</module>
+        <module>ms-provider-hystrix</module>
+        <module>ms-consumer-hystrix-dashboard</module>
+        <module>ms-config</module>
+        <module>ms-config-client</module>
+    </modules>
+    <packaging>pom</packaging>
+
+    <name>micro-service</name>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.11</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Swagger API文档 -->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>2.9.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>2.9.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>swagger-bootstrap-ui</artifactId>
+            <version>1.9.3</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-bean-validators</artifactId>
+            <version>2.9.2</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>micro-service</finalName>
+        <resources>
+            <resource>
+            <!-- 让子项目在build时，都去访问该目录，并过滤以$分割的变量（在plugins中配置的）-->
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+    </build>
+</project>

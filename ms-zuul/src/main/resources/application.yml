@@ -1,0 +1,25 @@
+server:
+  port: 9000
+spring:
+  application:
+    name: gateway-zuul
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://jorian:123456@localhost:8761/eureka
+
+zuul:
+  prefix: /lyy #所有方法都要加上该前缀，如：/lyy/u/get/1
+  #该属性意思就是原有的名称失效，即/provider-user/get/1无法使用，只能使用/u/get/1
+  #其中，'*'可以是特定的微服务名称，如：ignoredServices: provider-user
+  ignoredServices: '*'
+  routes:
+    app-a: #名称自定义，这里代表的是生产者
+      # 这里的意思是，使用path来代理serviceId名称的服务，
+      # 原本使用/provider-user/get/1，代理之后，可以使用/u/get/1
+      path: /u/**
+      serviceId: provider-user
+    abc-b:  #名称自定义，这里代表的是消费者
+      path: /cc/**
+      serviceId: j-cloud-consumer-feign
+

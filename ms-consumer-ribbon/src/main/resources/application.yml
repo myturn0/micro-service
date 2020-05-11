@@ -1,0 +1,23 @@
+server:
+  port: 8004
+spring:
+  application:
+    name: j-cloud-consumer-ribbon
+
+# eureka 配置
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://jorian:123456@localhost:8761/eureka
+  instance:
+    instance-id: ms-consumer-ribbon8004
+
+logging:
+  level:
+    root: INFO
+
+info:
+  app.name: micro-service
+  company.name: lyy
+  build.artifactId: "@project.artifactId@"
+  build.version: "@project.version@"

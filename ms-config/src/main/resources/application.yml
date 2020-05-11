@@ -1,0 +1,12 @@
+server:
+  port: 5001
+
+spring:
+  application:
+    name: ms-config
+  cloud:
+    config:
+      server:
+        git:
+          # 在github上git仓库的名字
+          uri: https://github.com/myturn0/ms-config.git

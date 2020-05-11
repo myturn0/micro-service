@@ -1,0 +1,14 @@
+server:
+  port: 8002
+spring:
+  application:
+    name: j-cloud-consumer-feign
+
+# eureka 配置
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://jorian:123456@localhost:8761/eureka
+  instance:
+    instance-id: ms-consumer-feign8002 #自定义服务名称信息
+    prefer-ip-address: true #访问路径可以显示ip
